@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<!--
+Copyright 2016 IBM Corp.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <!-- load script with wlCommonInit defined before loading cordova.js -->        
+        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+
+        <title>ResourceRequestCordova</title>
+    </head>
+
+    <body>
+        <div id="container">
+            <div id="header">
+                <h1>JSONStore Cordova</h1>
+            </div>
+                     
+            <div id="initCollection_screen">
+                <h3 style="margin-button:3px">Initialize a collection:</h3>
+                <center><button id="initCollection" class="WideSubmitButton">Initialize collection</button></center>
+                <hr />
+                <h3 style="margin-button:3px">Initialize a secured collection:</h3>
+                <p>A collection can be initializes as a <b>secured collection</b> by defining a username and password.
+                When initializing a collection with username and password - the collection data will be encrypted.</p>                
+                    <center><input id='initUsername' type='text' placeholder='user name'/>
+        		    <input id='initPassword' type='password' placeholder='password'/>
+                    <button id="initSecuredCollection" class="WideSubmitButton">Initialize secured collection</button></center>                
+            </div>
+            <div id="apiCommands_screen" style="display:none">
+              <div id="CloseRemoveDestroyButtonsDiv" align="center">
+                <button id="closeCollectionButton" class="CloseRemoveDestroyButtons">Close<br/>collection</button>
+                <button id="removeCollectionButton" class="CloseRemoveDestroyButtons">Remove<br/>collection</button>
+                <button id="destroyAllCollectionsButton" class="CloseRemoveDestroyButtons">Destroy<br/>collection</button>
+              </div>
+              <div id="selectBoxDiv">
+                  <select id="api_select">
+                    <option value="0">-- Select JSONStore action --</option>
+                </select>
+              </div>
+              <div id="ApisAdditionalInfoWrapperDiv">
+                  <!-- Add Data -->
+                  <div id="AddDataDiv" class="additionalInfoDiv">
+                      <input id='addName' type='text' placeholder='Name'/>
+        		      <input id='addAge' type='text' placeholder='Age'/>
+                      <button id="submitNewDocumentData" class="submit">Submit</button>
+                  </div>
+                  <!-- Find Documents -->
+                  <div id="FindDocDiv" class="additionalInfoDiv">
+                      <input id='findWhat' type='text' placeholder='Find Criteria'/>
+                      <button id="findById" class="submit">Find by ID</button>
+                      <button id="findByName" class="submit">Find by Name</button>
+                      <button id="findByAge" class="submit">Find by Age</button><br/>
+                      <button id="findAll" class="WideSubmitButton">Find All</button>                    
+                  </div>
+                  <!-- Replace Documents Data -->
+                  <div id="ReplaceDocDiv" class="additionalInfoDiv">
+                      <input id='replaceDocId' type='text' style="width:40%" placeholder='Document Id to replace'/>                    
+                      <button id="showDocToReplace" class="submit" style="width:50%">Display Document Info</button>                    
+                      <input id='replaceName' type='text' placeholder='Name' />
+        		      <input id='replaceAge' type='text' placeholder='Age' />
+                      <button id="submitReplacedDoc" class="WideSubmitButton">Replace</button>                      
+                  </div>
+                  <!-- Remove Documents -->
+                  <div id="RemoveDocDiv" class="additionalInfoDiv">
+                      <input id='docId' type='text' placeholder='Document ID for Removal'/>
+                      <button id="removeDoc" class="WideSubmitButton">Remove</button>
+                  </div>
+                  <!-- Adapter Integration -->
+                  <div id="AdapterIntegrationDiv" class="additionalInfoDiv">
+                      <button id="loadFromAdapter" class="WideSubmitButton">Load Data From Adapter</button>
+                      <button id="getDirtyDocs" class="WideSubmitButton">Get Dirt Documents</button>
+                      <button id="pushToAdapter" class="WideSubmitButton">Push Data To Adapter</button>
+                  </div>
+                  <!-- Change Password -->                  
+                  <div id="ChangePasswordDiv" class="additionalInfoDiv">
+        		      <input id='newPassword' type='text' placeholder='New password'/>
+                      <button id="submitNewPassword" class="submit">Submit</button>
+                  </div>
+              </div>                         
+            </div>
+           </div>
+           <div id="console">
+              <div id="resultsDiv"></div>                
+           </div>        
+    </body>
+</html>
